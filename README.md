@@ -9,7 +9,8 @@ CSS Components
 4. DropDown
 
 Jquery Plugins
-1.gmenu
-2.gImgCarouseles
-3.gTab
-4.gAccording
+
+1. gmenu
+2. gImgCarouseles
+3. gTab
+4. gAccording
