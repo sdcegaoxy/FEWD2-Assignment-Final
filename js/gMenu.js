@@ -151,12 +151,14 @@ function initlizeMenu(settings){
 		);
 	
         console.log("unitewidth="+unitewidth);
-    
+        
 		//$("#gmenu>ul li").css("width",unitewidth);
 		$("#gmenu>ul>li").css("width",unitewidth);
-        $("#gmenu>ul>li li").css("width",unitewidth);
+        $("#gmenu>ul li").css("width",unitewidth);
     
 		//$("#gmenu>ul>li").css("min-width","auto");
+        $("#gmenu>ul li").css("margin",settings.menumargin+"px");
+    
 		$("#gmenu>ul li").css("margin",settings.menumargin+"px");
 		$("#gmenu>ul li").css("padding",settings.menupadding+"px");
     
@@ -165,7 +167,8 @@ function initlizeMenu(settings){
     
 		$("#gmenu>ul li").css("text-align",settings.menutextalign);
 	    $("#gmenu>ul>li li").css("float",settings.submenufloat);
-	
+	   
+        $("#gmenu>ul>li ul").css("overflow","visible");
 	
 		$("#gmenu>ul ul").hide();
 	
@@ -176,7 +179,7 @@ function initMenuMouseEvent(){
 	$("#gmenu>ul li").mouseover(function(event){
 		event.stopPropagation();
 		
-		var liwidth=$(this).width();
+		var liwidth=$(this).width()+1;
 		var liheight=$(this).height();
 		var ifloat=$(this).css("float");
 		var zindex=$(this).css("z-index");
@@ -184,7 +187,7 @@ function initMenuMouseEvent(){
 		
 		
 		if(ifloat=="none"){							            	           		$(this).children("ul").css({
-								"position":"absolute",												    "left":liwidth,
+								"position":"absolute",												                    "left":liwidth,
 								"top":liheight*Math.round(linum/2),
 								"z-index":zindex+1
 								});
@@ -228,8 +231,6 @@ function initMenuMouseEvent(){
 			gmenuhide($("#gmenu>ul ul"));
 		});
 }
-
-
 
 
 
