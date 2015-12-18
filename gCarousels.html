@@ -1,40 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+ 
   <meta charset="utf-8">
   <title>Gmenu Example</title>
   <meta name="description" content="">
   <meta name="author" content="Xuyang Gao, James">
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
  
-
-  
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link href='http://fonts.googleapis.com/css?family=Roboto:900,500,900italic,400italic,700italic,300,700,500italic,300italic,400' rel='stylesheet' type='text/css'>
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+ 
   <link rel="stylesheet" href="css/normalize.css"> 
   <link rel=stylesheet href="css/gMenu.css">
- <!-- Printer CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
  
-	
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
- 
-    
-	
-	
-  <!-- Js library
-  –––––––––––––––––––––––––––––––––––––––––––––––––– --> 
- 
+<script src="./Data/initData.js"></script>	
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="./js/gCarousels.js"></script>
 	
@@ -42,10 +21,23 @@
  
 		
 	<script>
+        var imageCarousels=[
+            {"imageUrl":"/images/01.png","desc":"Test1"},
+            {"imageUrl":"/images/02.png","desc":"Test1"},
+            {"imageUrl":"/images/03.png","desc":"Test1"},
+            {"imageUrl":"/images/04.png","desc":"Test1"},
+            {"imageUrl":"/images/05.png","desc":"Test1"}
+            ];
+        
+        
 		$(document).ready( function() {
 			
-    		$("#gcarousels").gCarousels({
- 
+    		$("#gcarousels").gcarousels({
+                datasource:imageCarousels,
+				menumargin:"0",
+				menutextalign:"center",
+				topmenufloat:"left",
+                submenufloat:"none"
 			});
 		});
 	</script>
@@ -55,35 +47,12 @@
 	
 </head>
 <body  >
-
  
-<!-- Nav End
-–––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
  
-    <ul id="gcarousels">
-        <li><img src="images/01.PNG" alt="Test1"></li>
-        <li><img src="images/02.PNG" alt="Test2"></li>
-        <li><img src="images/03.PNG" alt="Test3"></li>
-        <li><img src="images/04.PNG" alt="Test4"></li>
-        <li><img src="images/05.PNG" alt="Test5"></li>
-    </ul>
+    <div id="gcarousels">
+        
+    </div>
  						
-<!-- Primary Page Layout 
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-	
-
-
-	
-	
-	
-
-<!-- Primary Page Layout End
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-	
  
-  
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>

@@ -3,25 +3,27 @@
     $.fn.gcarousels = function( options ) {
 		var settings = $.extend({
 		// These are the defaults.
-		datasource: " ",
-		menumargin:"5",
-		menupadding:"0",
-		menuborder:"1",
-		menutextalign:"center",
-		topmenufloat:"left",
-        submenufloat:"none",
-		padview:{
-					initwidth:400},				  
-		mobileview:{
-					initwidth:400
-				}
+                datasource:"",
+				menumargin:"0",
+				menutextalign:"center",
+				topmenufloat:"left",
+                submenufloat:"none",
 		}, options );
- 
-		
- 
-		
-		
+        
+        console.log(imageCarousels);
+        $("#gcarousels").html(getCarouselsHtml(settings.datasource));
+        
 		return this;
     }
 }(jQuery));
 
+
+
+function getCarouselsHtml(data){
+	var html="";
+	$.each( data, function( i,obj ) {
+   		html=html+"<li><img src=\""+obj.imageUrl+"\" /><span></span></li>";
+	});
+	html="<ul>"+html+"</ul>"
+	return html;
+}
