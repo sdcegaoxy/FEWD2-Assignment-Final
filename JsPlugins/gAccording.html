@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+  <meta charset="utf-8">
+  <title>Gmenu Example</title>
+  <meta name="description" content="">
+  <meta name="author" content="Xuyang Gao, James">
+ 
+  <link href='http://fonts.googleapis.com/css?family=Roboto:900,500,900italic,400italic,700italic,300,700,500italic,300italic,400' rel='stylesheet' type='text/css'>
+
+ 
+  <link rel="stylesheet" href="css/normalize.css"> 
+  <link rel=stylesheet href="css/gAccording.css">
+ 
+	
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="./js/gAccording.js"></script>
+	
+    
+ 
+		
+	<script>
+        var gAccordingData=[
+  {
+    "title": "COSMOSIS",
+    "about": "Sunt sit anim ullamco labore aliqua do non commodo sint pariatur laboris officia aliqua. Do est irure officia culpa aute. Ex ut velit ea consectetur consequat reprehenderit.\r\n"
+  },
+  {
+    "title": "COWTOWN",
+    "about": "Cupidatat do sunt sit sunt dolore et ullamco sit ad. Adipisicing est aute nisi irure consequat tempor pariatur velit ex pariatur excepteur dolore Lorem. Qui pariatur laborum proident nostrud dolor aliquip nulla.\r\n"
+  },
+  {
+    "title": "ELENTRIX",
+    "about": "Ea sit occaecat exercitation magna sint eu ea aute. Occaecat exercitation ea sint cillum pariatur eiusmod non culpa proident laborum. Labore velit ad aute dolor consectetur dolor aute adipisicing labore est eu elit deserunt.\r\n"
+  },
+  {
+    "title": "CALCULA",
+    "about": "Proident aliqua in duis commodo consequat commodo anim ullamco enim eu qui elit cupidatat minim. Cupidatat laboris sit nostrud irure velit consequat occaecat ad occaecat veniam. Duis velit anim tempor dolore veniam. Est in cillum ut esse eiusmod ipsum dolore fugiat et. Cillum consequat tempor quis elit laboris anim aute laborum anim magna. Ullamco dolor exercitation aliqua est excepteur occaecat sint magna nulla. Nisi nisi veniam laborum fugiat sint adipisicing.\r\n"
+  },
+  {
+    "title": "XEREX",
+    "about": "Irure consequat anim labore proident in cupidatat minim id. Nisi Lorem adipisicing deserunt nisi deserunt adipisicing consectetur incididunt nulla amet aute ex nostrud amet. Proident ut tempor proident commodo dolore consectetur. Et officia magna qui exercitation consectetur quis amet incididunt velit. Adipisicing magna amet aliqua aute duis do ad quis culpa Lorem non.\r\n"
+  }
+];
+        
+        
+		$(document).ready( function() {
+    		$("#gAccording").gAccording({
+                datasource:gAccordingData,
+				width:"100%",
+				height:"100%",
+				titleheight:"32px",
+				titlefontsize:"16px",
+				txtlineheight:"25px",
+				txtfontsize:"12px"
+				
+			});
+		});
+	</script>
+
+	<style>
+		#gAccording{
+			border:1px solid gray;
+			width: 500px;
+			height: 400px;
+			
+		}
+		
+		#test{
+			width: 400px;
+			height: 50px;
+			border: 1px solid red;
+			position:relative;
+			top: 0px;
+			
+		}
+		
+	</style>
+	
+	
+</head>
+<body  >
+    <div id="gAccording"></div>
+
+</body>
+</html>

@@ -99,6 +99,12 @@ function running(width){
      );  
 }
 
+function caculateHegiht(settings){
+	var objlen=settings.datasource.length;
+	var boxheight=settings.height;
+	var lineheight
+}
+
 function initlizeMouseEvent(){
 	//on mouse over ul show desc
 	//on mouse over ul show nav button
