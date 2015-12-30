@@ -3,7 +3,7 @@
 <head>
  
   <meta charset="utf-8">
-  <title>gAccording Example</title>
+  <title>gTab Example</title>
   <meta name="description" content="">
   <meta name="author" content="Xuyang Gao, James">
  
@@ -11,17 +11,17 @@
 
  
   <link rel="stylesheet" href="css/normalize.css"> 
-  <link rel=stylesheet href="css/gAccording.css">
+  <link rel=stylesheet href="css/gTab.css">
  
 	
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="./js/gAccording.js"></script>
+<script src="./js/gTab.js"></script>
 	
     
  
 		
 	<script>
-        var gAccordingData=[
+        var gData=[
   {
     "title": "COSMOSIS",
     "about": "Sunt sit anim ullamco labore aliqua do non commodo sint pariatur laboris officia aliqua. Do est irure officia culpa aute. Ex ut velit ea consectetur consequat reprehenderit.\r\n"
@@ -46,10 +46,10 @@
         
         
 		$(document).ready( function() {
-    		$("#gAccording").gAccording({
-                datasource:gAccordingData,
-				width:"100%",
-				height:"100%",
+    		$("#gTab").gTab({
+                datasource:gData,
+				width:"99%",
+				height:"99%",
 				titleheight:"32px",
 				titlefontsize:"16px",
 				txtlineheight:"25px",
@@ -60,7 +60,7 @@
 	</script>
 
 	<style>
-		#gAccording{
+		#gTab{
 			border:1px solid gray;
 			width: 500px;
 			height: 400px;
@@ -81,7 +81,7 @@
 	
 </head>
 <body  >
-    <div id="gAccording"></div>
+    <div id="gTab"></div>
 
 </body>
 </html>
