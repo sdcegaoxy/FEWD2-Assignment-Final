@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+  <meta charset="utf-8">
+  <title>Flip Example</title>
+  <meta name="description" content="">
+  <meta name="author" content=" ">
+ 
+  <link href='http://fonts.googleapis.com/css?family=Roboto:900,500,900italic,400italic,700italic,300,700,500italic,300italic,400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/normalize.css"> 
+	
+	
+	<style>
+		li,ul{
+			list-style: none;
+		}
+		
+.flip-container .front, 
+.flip-container .back,
+.flip-container img           	{
+					
+					backface-visibility: hidden;
+					position: absolute;
+				}
+.flip-container .front{
+	box-shadow: 10px 10px 5px #888888;
+}
+
+.flip-container .back{
+	background-color: white;
+	padding:10px;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+
+/* entire container, keeps perspective */
+.flip-container {
+	/**perspective: 100;//*/
+}
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);	
+	}
+
+.flip-container, .front, .back {
+	width: 300px;
+	height: 300px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+.flipper .back li:nth-child(1){
+	font-size: 2em;
+	color: #5f6db3;
+	font-weight: 700;
+	text-align: center;
+	margin-top: 20px;
+	
+}
+.flipper .back li:nth-child(2){
+	font-size: 1em;
+	text-align: center;
+	color: #5f6db3;
+	margin-top: 20px;
+}
+.flipper .back li:nth-child(3){
+	margin-top: 20px;
+	text-align: center;
+	font-size: 1.2em;
+}
+
+.flipper .back li button{
+	background-color: #99cd4e;
+	color: white;
+	font-weight: 700;
+	border-radius: 5px;
+	padding: 5px;
+
+}
+.flipper .back li button:hover{
+	background-color: #ccff66;
+	color: black;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+}
+
+
+	
+	</style>	
+	
+	
+	
+</head>
+<body  >
+   
+<div class="flip-container">
+	<div class="flipper">
+						<div class="front">
+							<img  src="./images/service-1-0.jpg">
+						</div>
+						<div class="back">
+								<ul>
+									<li>Test title</li>
+									<li>Test desc</li>
+									<li><a href="#" target="_blank"><button  >Learn more</button></a></li>
+								</ul>
+						</div>
+	</div>
+</div>	
+</body>
+</html>
