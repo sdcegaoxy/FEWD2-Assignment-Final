@@ -46,35 +46,61 @@
         
         
 		$(document).ready( function() {
-    		$("#gTab").gTab({
+    		$("#gaoxy").gTab({
                 datasource:gData,
 				width:"99%",
 				height:"99%",
 				titleheight:"32px",
 				titlefontsize:"16px",
 				txtlineheight:"25px",
-				txtfontsize:"12px"
+				txtfontsize:"12px",
+				activeclassname:"active"
 				
 			});
 		});
 	</script>
 
 	<style>
-		#gTab{
+		#gaoxy{
 			border:1px solid gray;
 			width: 500px;
 			height: 400px;
-			
 		}
 		
- 
+		#gaoxy ul:nth-child(1){
+			height: 30px;
+			font-family: fantasy;
+			color: darkmagenta;
+			font-weight: 900;
+		}
+		
+		.active{
+			color: red;
+			background-color: bisque;
+			
+		}
 		
 	</style>
 	
 	
 </head>
+
+<!--
+gtab html construction sample
+
+<ul>
+	<li>aaaa</li>
+	<li>bbbb</li>
+</ul>
+<ul>
+	<li title="aaaa"></li>
+	<li title="bbbb"></li>
+</ul>
+-->
+
+	
 <body  >
-    <div id="gTab"></div>
+    <div id="gaoxy"></div>
 
 </body>
 </html>

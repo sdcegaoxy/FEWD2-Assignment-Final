@@ -9,12 +9,13 @@
 				titleheight:"2em",
 				titlefontsize:"1em",
 				txtlineheight:"1.6em",
-				txtfontsize:"0.8em"
+				txtfontsize:"0.8em",
+				activeclassname:"active"
 			
 		}, options );
-        $("#gTab").html(getHtml(settings));
-		setDefaultCSS(settings);
-		setMouseEvent();
+        $(this).html(getHtml(settings));
+		setDefaultCSS(this,settings);
+		setMouseEvent(this,settings);
    
 		return this;
     }
@@ -47,32 +48,55 @@ function getHtml(settings){
 	return html+"<div style=\"clear:both\"></div>"+html2;
 }
 
-function setDefaultCSS(settings){
+function setDefaultCSS(obj,settings){
 	var size=caculateHegiht(settings);
 	
-	$("#gTab").css("overflow","hidden");
-	$("#gTab,ul,li").css(
-		{"margin":"0px",
-		 "padding":"0px",
-		 "list-style":"none"}); 
+	obj.css({overflow:"hidden",
+			"margin":"0px",
+			 "padding":"0px",
+			 "list-style":"none"	
+			});
+	
+	obj.children("ul").css({overflow:"hidden",
+			"margin":"0px",
+			 "padding":"0px",
+			 "list-style":"none"	
+			});
+	
+	obj.children("ul").children("li").css({overflow:"hidden",
+			"margin":"0px",
+			 "padding":"0px",
+			 "list-style":"none"	
+			});
 
-	$("#gTab>ul").css({
+//	$("#gTab>ul").css({
+//		"width":"100%"
+//	});
+		obj.children("ul").css({
 		"width":"100%"
 	});
 	
-	$("#gTab>ul:nth-child(1)>li").css({
+//	$("#gTab>ul:nth-child(1)>li").css({
+//		"float":"left",
+//		"padding":"2px",
+//		"width":Math.floor(parseInt(settings.width)/size.tabcount)+"%"
+//	});
+	
+		obj.children("ul:nth-child(1)").children("li").css({
 		"float":"left",
 		"padding":"2px",
 		"width":Math.floor(parseInt(settings.width)/size.tabcount)+"%"
 	});
 	
-		$("#gTab>ul:nth-child(3)>li").css({
+	obj.children("ul:nth-child(1)").children("li:nth-child(1)").toggleClass(settings.activeclassname);
+	
+		obj.children("ul:nth-child(3)").children("li").css({
 		"display":"none",
 		"float":"left",
 		"padding":"10px"
 	});
 	
-	$("#gTab>ul:nth-child(3)>li:nth-child(1)").css({
+	obj.children("ul:nth-child(3)").children("li:nth-child(1)").css({
 		"display":"block"
 	});
 	
@@ -89,8 +113,8 @@ function caculateHegiht(settings){
 	
 }
 
-function setMouseEvent(settings){
-	$( "#gTab>ul:nth-child(1)>li" ).bind({
+function setMouseEvent(obj,settings){
+	obj.children("ul:nth-child(1)").children("li" ).bind({
 		  mouseover: function() {
 			//high light css
 		  },
@@ -98,8 +122,10 @@ function setMouseEvent(settings){
 			 //normal css
 		  },
 		  click:function(){
+			  obj.children("ul:nth-child(1)").children("li" ).removeClass(settings.activeclassname);
+			  $(this).toggleClass(settings.activeclassname);
 			 
-			  $("#gTab>ul:nth-child(3)>li").css({
+			  obj.children("ul:nth-child(3)").children("li").css({
 				"display":"none",
 				"float":"left",
 				"padding":"10px"
@@ -107,7 +133,8 @@ function setMouseEvent(settings){
  
 			  
 			  var tabid=$(this).html();
-			  $("#gTab>ul:nth-child(3)>li[title=\""+tabid+"\"]").css({
+			  //alert(tabid);
+			  obj.children("ul:nth-child(3)").children("li[title=\""+tabid+"\"]").css({
 			  	"display":"block"
 			  });
 			 
