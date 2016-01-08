@@ -1,6 +1,6 @@
 (function($) {
 
-    $.fn.gAccording = function( options ) {
+    $.fn.gAccordion = function( options ) {
 		var settings = $.extend({
 		// These are the defaults.
                 datasource:"",
@@ -12,15 +12,17 @@
 				txtfontsize:"0.8em"
 			
 		}, options );
-        $("#gAccording").html(getAccordingHtml(settings));
-		setDefaultCSS(settings);
-		setMouseEvent();
+				
+        this.append(getAccordionHtml(settings));	
+		setDefaultCSS(this,settings);
+		setMouseEvent(this);
    
+		
 		return this;
     }
 }(jQuery));
 
-function getAccordingHtml(settings){
+function getAccordionHtml(settings){
 	var html="";
 	$.each( settings.datasource, function( i,obj ) {
    		html=html+"<li>"+obj.title+"</li>"+
@@ -30,16 +32,21 @@ function getAccordingHtml(settings){
 	return html;
 }
 
-function setDefaultCSS(settings){
-	var size=caculateHegiht(settings);
+function setDefaultCSS(obj,settings){
+	var size=caculateHegiht(obj,settings);
 	
-	$("#gAccording").css("overflow","hidden");
-	$("#gAccording,ul,li").css(
-		{"margin":"0px",
-		 "padding":"0px",
-		 "list-style":"none"}); 
+	obj.css({overflow:"hidden",
+			"margin":"0px",
+			 "padding":"0px",
+			 "list-style":"none"	
+			});
+	obj.children("ul").css({overflow:"hidden",
+			"margin":"0px",
+			 "padding":"0px",
+			 "list-style":"none"	
+			});
 
-	$("#gAccording li:nth-child(odd)").css({
+	obj.children("ul").children("li:nth-child(odd)").css({
 		"background-color":"#CCC",
 		"padding-left":"5px",
 		"padding-right":"5px",
@@ -48,7 +55,7 @@ function setDefaultCSS(settings){
 	    "line-height":"2em"
 	}); 
 	
-	$("#gAccording li:nth-child(even)").css({
+	obj.children("ul").children("li:nth-child(even)").css({
 		"background-color":"#fff",
 		"display":"none",
 		"padding-left":"15px",
@@ -58,17 +65,17 @@ function setDefaultCSS(settings){
 		"overflow":"auto"
 	}); 
 	
-	$("#gAccording li:nth-child(2)").css({
+	obj.children("ul").children("li:nth-child(2)").css({
 		"display":"block"
 	}); 
 	
 	var ilength=settings.datasource.length;
-	var w_leng=$("#gAccording").height();
+	var w_leng=obj.height();
 	var li_position=0;
 	
-	$("#gAccording li").css("position","realitive");
+	obj.children("ul").children("li").css("position","realitive");
 
-	$("#gAccording li:nth-child(2)").css("height",size.contentheight);
+	obj.children("ul").children("li:nth-child(2)").css("height",size.contentheight);
 //	for (var i=0;i<ilength;i++){
 //		
 //		var li_count=2*i+1;
@@ -82,30 +89,29 @@ function setDefaultCSS(settings){
 }
 
 
-function caculateHegiht(settings){
+function caculateHegiht(obj,settings){
 	var objlen=settings.datasource.length;
-	var boxheight=$("#gAccording").height();
+	var boxheight=obj.height();
 	var titleheight=parseInt(settings.titleheight);
 	var size={};
 	
 	var contentheight=boxheight-objlen*titleheight;
 	if(contentheight<0){
 		contentheight=3*titleheight;
-		$("#gAccording ul").css("overflow","scroll");
+		obj.children("").css("overflow","scroll");
 	}
-	
-	console.log("obj len is "+objlen);
-	console.log("box height is "+boxheight);
-	console.log("title height is "+titleheight);
-	console.log("content height is "+contentheight);
+//	console.log("obj len is "+objlen);
+//	console.log("box height is "+boxheight);
+//	console.log("title height is "+titleheight);
+//	console.log("content height is "+contentheight);
 	 size.contentheight=contentheight+"px";
 	
 	return size;
 	
 }
 
-function setMouseEvent(settings){
-	$( "#gAccording" ).bind({
+function setMouseEvent(obj){
+	obj.bind({
 		  mouseover: function() {
 			//high light css
 		  },
@@ -113,17 +119,14 @@ function setMouseEvent(settings){
 			 //normal css
 		  },
 		  click:function(event){
-		  	//hide all list of content
-			//show the correct list content
-			$("#gAccording li:nth-child(even)").hide();  
-			  
 			var indexli=$("li").index(event.target)+2;
 			console.log("the index of li which is clicked is "+indexli);
-//			console.log(indexli+1);
-			$("li:nth-child("+indexli+")").css({
-				"display":"block",
-				"height":"240px"
-			});
+			if(indexli%2==0){  
+				obj.children("ul").children("li:nth-child(even)").hide();  	
+				$("li:nth-child("+indexli+")").css({
+					"display":"block",
+					"height":"240px"
+				});}
 		  }
 	});
 	

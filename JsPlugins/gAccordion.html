@@ -3,7 +3,7 @@
 <head>
  
   <meta charset="utf-8">
-  <title>gAccording Example</title>
+  <title>gAccordion Example</title>
   <meta name="description" content="">
   <meta name="author" content="Xuyang Gao, James">
  
@@ -15,13 +15,13 @@
  
 	
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="./js/gAccording.js"></script>
+<script src="./js/gAccordion.js"></script>
 	
     
  
 		
 	<script>
-        var gAccordingData=[
+        var gAccordionData=[
   {
     "title": "COSMOSIS",
     "about": "Sunt sit anim ullamco labore aliqua do non commodo sint pariatur laboris officia aliqua. Do est irure officia culpa aute. Ex ut velit ea consectetur consequat reprehenderit.\r\n"
@@ -46,8 +46,8 @@
         
         
 		$(document).ready( function() {
-    		$("#gAccording").gAccording({
-                datasource:gAccordingData,
+    		$("#gaoxy").gAccordion({
+                datasource:gAccordionData,
 				width:"100%",
 				height:"100%",
 				titleheight:"32px",
@@ -60,28 +60,21 @@
 	</script>
 
 	<style>
-		#gAccording{
+		#gaoxy{
 			border:1px solid gray;
 			width: 500px;
 			height: 400px;
 			
 		}
-		
-		#test{
-			width: 400px;
-			height: 50px;
-			border: 1px solid red;
-			position:relative;
-			top: 0px;
-			
-		}
+ 
 		
 	</style>
 	
 	
 </head>
 <body  >
-    <div id="gAccording"></div>
+    <div id="gaoxy"></div>
+<!--	<div class="gAccordion"></div>-->
 
 </body>
 </html>
