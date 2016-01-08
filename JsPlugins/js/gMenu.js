@@ -27,7 +27,7 @@ console.log("document.URL:"+currentpage);
 		var swidth=$(window).width();
 		var htmlMenu=getMenu(settings.datasource);
 		var htmlMobile=getSelect(settings.datasource,0,currentpage);
-		htmlMobile="<select id='gselect'>"+htmlMobile+"</select>";
+		htmlMobile="<select  >"+htmlMobile+"</select>";
 		
 		if(swidth>=settings.mobileview.initwidth){
 			this.html(htmlMenu);
@@ -44,16 +44,16 @@ console.log("document.URL:"+currentpage);
 		var width=$(window).width();
 		//console.log("window.resize.width:"+width);
 		if(width>=settings.mobileview.initwidth){
-			$("#gmenu").html(htmlMenu);
+			$(this).html(htmlMenu);
 			initlizeMenu(settings);
 			initMenuMouseEvent();	
 		}else{
-			$("#gmenu").html(htmlMobile);
+			$(this).html(htmlMobile);
 			initlizeSelect();
 			initlizeSelectEvent();
 		}
+		location.reload();
 	 });	
-		
 		
 		return this;
     }
@@ -79,7 +79,7 @@ function getSelect(data,currentlevel,currentpage){
         prevsign="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-";
         break;
 	case 4:
-        		prevsign="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-";
+        prevsign="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-";
         break;
 }
 		
