@@ -1,7 +1,7 @@
 
-#gmenu,
-#gmenu ul,
-#gmenu ul li 		{
+#xgmenu,
+#xgmenu ul,
+#xgmenu ul li 		{
 						list-style: none;
 						line-height: 2em;
 						margin: 0px;
@@ -13,7 +13,7 @@
 /*
 This is for test
 */
-#gmenu ul li{
+#xgmenu ul li{
                         border:1px solid blue;
 }
 

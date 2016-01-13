@@ -16,10 +16,13 @@
 					initwidth:400
 				}
 		}, options );
-
+		
+		//console.log(this.selector);
+var menuSelector=this.selector;
 var acontent=document.URL.split("/");
 var currentpage=acontent[acontent.length-1];
-		
+
+console.log("gmenu selector is "+ menuSelector);
 console.log("settings.padview.initwidth:"+settings.padview.initwidth);
 console.log("settings.mobileview.initwidth:"+settings.mobileview.initwidth);
 console.log("document.URL:"+currentpage);
@@ -31,13 +34,13 @@ console.log("document.URL:"+currentpage);
 		
 		if(swidth>=settings.mobileview.initwidth){
 			this.html(htmlMenu);
-			initlizeMenu(settings);
-			initMenuMouseEvent();			
+			initlizeMenu(menuSelector,settings);
+			initMenuMouseEvent(menuSelector);			
 			
 		}else{
 			this.html(htmlMobile);
-			initlizeSelect();
-			initlizeSelectEvent();
+			initlizeSelect(menuSelector);
+			initlizeSelectEvent(menuSelector);
 		}
 		
 	$(window).resize(function(){
@@ -45,12 +48,12 @@ console.log("document.URL:"+currentpage);
 		//console.log("window.resize.width:"+width);
 		if(width>=settings.mobileview.initwidth){
 			$(this).html(htmlMenu);
-			initlizeMenu(settings);
-			initMenuMouseEvent();	
+			initlizeMenu(menuSelector,settings);
+			initMenuMouseEvent(this);	
 		}else{
 			$(this).html(htmlMobile);
-			initlizeSelect();
-			initlizeSelectEvent();
+			initlizeSelect(menuSelector);
+			initlizeSelectEvent(menuSelector);
 		}
 		location.reload();
 	 });	
@@ -108,14 +111,14 @@ function getSelect(data,currentlevel,currentpage){
 	return html;
 }
 
-function initlizeSelect(){
-	$("#gmenu select").css("width","100%");
+function initlizeSelect(obj){
+	$(obj+" select").css("width","100%");
 }
 
 
 function initlizeSelectEvent(){
-	$("#gmenu>select").change(function(){
-		window.location=$("#gmenu>select").val();
+	$(obj+">select").change(function(){
+		window.location=$(obj+">select").val();
 	});
 }
 
@@ -133,10 +136,10 @@ function getMenu(data){
 	return html;
 }
 
-function initlizeMenu(settings){
+function initlizeMenu(obj,settings){
 	
-		var width=$("#gmenu").width();
-		var menucol=$("#gmenu>ul>li").length;
+		var width=$(obj).width();
+		var menucol=$(obj+">ul>li").length;
 		
 		 //alert(width);
 		console.log("width="+width);
@@ -153,30 +156,30 @@ function initlizeMenu(settings){
         console.log("unitewidth="+unitewidth);
         
 		//$("#gmenu>ul li").css("width",unitewidth);
-		$("#gmenu>ul>li").css("width",unitewidth);
-        $("#gmenu>ul li").css("width",unitewidth);
+		$(obj+">ul>li").css("width",unitewidth);
+        $(obj+">ul li").css("width",unitewidth);
     
 		//$("#gmenu>ul>li").css("min-width","auto");
-        $("#gmenu>ul li").css("margin",settings.menumargin+"px");
+        $(obj+">ul li").css("margin",settings.menumargin+"px");
     
-		$("#gmenu>ul li").css("margin",settings.menumargin+"px");
-		$("#gmenu>ul li").css("padding",settings.menupadding+"px");
+		$(obj+">ul li").css("margin",settings.menumargin+"px");
+		$(obj+">ul li").css("padding",settings.menupadding+"px");
     
-		$("#gmenu>ul>li").css("float",settings.topmenufloat);
-		$("#gmenu>ul>li li").css("margin","-"+settings.menuborder+"px");
+		$(obj+">ul>li").css("float",settings.topmenufloat);
+		$(obj+">ul>li li").css("margin","-"+settings.menuborder+"px");
     
-		$("#gmenu>ul li").css("text-align",settings.menutextalign);
-	    $("#gmenu>ul>li li").css("float",settings.submenufloat);
+		$(obj+">ul li").css("text-align",settings.menutextalign);
+	    $(obj+">ul>li li").css("float",settings.submenufloat);
 	   
-        $("#gmenu>ul>li ul").css("overflow","visible");
+        $(obj+">ul>li ul").css("overflow","visible");
 	
-		$("#gmenu>ul ul").hide();
+		$(obj+">ul ul").hide();
 	
 }
 
-function initMenuMouseEvent(){
+function initMenuMouseEvent(obj){
 	
-	$("#gmenu>ul li").mouseover(function(event){
+	$(obj+">ul li").mouseover(function(event){
 		event.stopPropagation();
 		
 		var liwidth=$(this).width()+1;
@@ -210,7 +213,7 @@ function initMenuMouseEvent(){
 	
 	
 	
-	 $("#gmenu li").hover(
+	 $(obj+" li").hover(
 		 function(){//in class
  			$(this).addClass("gmenuhighlight");
 			$(this).children().css({"color":"black"});
@@ -220,15 +223,15 @@ function initMenuMouseEvent(){
 	 });
  
 	
-		$("#gmenu").click(function(event){
+		$(obj).click(function(event){
 			event.stopPropagation() 
 			//return false;
 		});
-		$("#gmenu a").hover(function(){
+		$(obj+" a").hover(function(){
 			return false;
 		});
 		$("html").click(function(){	
-			gmenuhide($("#gmenu>ul ul"));
+			gmenuhide($(obj+">ul ul"));
 		});
 }
 
