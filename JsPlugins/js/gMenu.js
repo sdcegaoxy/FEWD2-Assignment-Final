@@ -60,11 +60,9 @@ console.log("document.URL:"+currentpage);
 		
 		return this;
     }
-}(jQuery));
-
-
-
-function getSelect(data,currentlevel,currentpage){
+	
+	
+	function getSelect(data,currentlevel,currentpage){
 	var html="";
 	
 	$.each( data, function( i,obj ) {
@@ -247,3 +245,8 @@ function gmenushow(obj){
 	}
 	
 }
+	
+}(jQuery));
+
+
+

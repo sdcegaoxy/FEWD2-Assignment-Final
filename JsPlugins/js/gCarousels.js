@@ -34,9 +34,8 @@
    
 		return this;
     }
-}(jQuery));
-
-function setDefaultCSS(obj,settings,img_width,img_height,topmargin){
+	
+	function setDefaultCSS(obj,settings,img_width,img_height,topmargin){
 
 	
 	obj.css("overflow","hidden");
@@ -146,3 +145,6 @@ function initlizeMouseEvent(obj){
                                 );  
 		  }});
 }
+	
+}(jQuery));
+

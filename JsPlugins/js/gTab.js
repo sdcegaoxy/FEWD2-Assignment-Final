@@ -13,25 +13,15 @@
 				activeclassname:"active"
 			
 		}, options );
-        $(this).html(getHtml(settings));
-		setDefaultCSS(this,settings);
-		setMouseEvent(this,settings);
+        $(this).append(getgTabHtml(settings));
+		setgTabDefaultCSS(this,settings);
+		setgTabMouseEvent(this,settings);
    
 		return this;
     }
-}(jQuery));
-
-function getHtml(settings){
-/**	
-<ul>
-	<li>aaaa</li>
-	<li>bbbb</li>
-</ul>
-<ul>
-	<li title="aaaa"></li>
-	<li title="bbbb"></li>
-</ul>
-//*/
+	
+	function getgTabHtml(settings){
+ 
 	
 	var html="";
 	var html2="";
@@ -48,7 +38,7 @@ function getHtml(settings){
 	return html+"<div style=\"clear:both\"></div>"+html2;
 }
 
-function setDefaultCSS(obj,settings){
+function setgTabDefaultCSS(obj,settings){
 	var size=caculateHegiht(settings);
 	
 	obj.css({overflow:"hidden",
@@ -60,7 +50,8 @@ function setDefaultCSS(obj,settings){
 	obj.children("ul").css({overflow:"hidden",
 			"margin":"0px",
 			 "padding":"0px",
-			 "list-style":"none"	
+			 "list-style":"none",
+			//"background-color":"red"
 			});
 	
 	obj.children("ul").children("li").css({overflow:"hidden",
@@ -69,18 +60,10 @@ function setDefaultCSS(obj,settings){
 			 "list-style":"none"	
 			});
 
-//	$("#gTab>ul").css({
-//		"width":"100%"
-//	});
 		obj.children("ul").css({
 		"width":"100%"
 	});
 	
-//	$("#gTab>ul:nth-child(1)>li").css({
-//		"float":"left",
-//		"padding":"2px",
-//		"width":Math.floor(parseInt(settings.width)/size.tabcount)+"%"
-//	});
 	
 		obj.children("ul:nth-child(1)").children("li").css({
 		"float":"left",
@@ -113,7 +96,7 @@ function caculateHegiht(settings){
 	
 }
 
-function setMouseEvent(obj,settings){
+function setgTabMouseEvent(obj,settings){
 	obj.children("ul:nth-child(1)").children("li" ).bind({
 		  mouseover: function() {
 			//high light css
@@ -142,3 +125,6 @@ function setMouseEvent(obj,settings){
 	});
 	
 }
+	
+}(jQuery));
+

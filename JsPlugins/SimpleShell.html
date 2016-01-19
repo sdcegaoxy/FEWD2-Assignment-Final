@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>gMenu Example</title>
+  <meta name="description" content="">
+  <meta name="author" content="Xuyang Gao, James">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+ 
+
+  
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href='http://fonts.googleapis.com/css?family=Roboto:900,500,900italic,400italic,700italic,300,700,500italic,300italic,400' rel='stylesheet' type='text/css'>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css"> 
+  <link rel=stylesheet href="css/gMenu.css">
+ <!-- Printer CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+ 
+	
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+ 
+    
+	
+	
+  <!-- Js library
+  –––––––––––––––––––––––––––––––––––––––––––––––––– --> 
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="./js/gMenu.js"></script>
+<script src="./js/gAccordion.js"></script>
+<script src="./js/gCarousels.js"></script>	
+<script src="./js/gTab.js"></script>
+		
+	<script>
+		
+		var menudata=[
+	{"title":"Home","url":"index.html","submenu":null},
+	{"title":"About Us","url":"aboutus.html","submenu":null},
+	{"title":"Services","url":"#","submenu":[
+		{"title":"Dog Walking","url":"sdogwalking.html","submenu":null},
+		{"title":"Doggie Daycare","url":"sdoggiedaycare.html","submenu":null},
+		{"title":"Cat Sitting","url":"scatsitting.html","submenu":null},
+		{"title":"Overnight","url":"sovernight.html","submenu":null},
+		{"title":"Boarding","url":"sboarding.html","submenu":null},
+		{"title":"Pet Taxi","url":"spettaxi.html","submenu":[
+		{"title":"Dog Walking","url":"sdogwalking.html","submenu":null},
+		{"title":"Doggie Daycare","url":"sdoggiedaycare.html","submenu":null},
+		{"title":"Cat Sitting","url":"scatsitting.html","submenu":null},
+		{"title":"Overnight","url":"sovernight.html","submenu":null},
+		{"title":"Boarding","url":"sboarding.html","submenu":null},
+		{"title":"Pet Taxi","url":"spettaxi.html","submenu":null}
+	]}
+	]},		 
+	{"title":"Rates","url":"rates.html","submenu":null},	
+	{"title":"FAQ","url":"faq.html","submenu":null},
+	{"title":"Contact Us","url":"contactus.html","submenu":null}
+			 ];
+		
+	 var gAccordionData=[
+  {
+    "title": "COSMOSIS",
+    "about": "Sunt sit anim ullamco labore aliqua do non commodo sint pariatur laboris officia aliqua. Do est irure officia culpa aute. Ex ut velit ea consectetur consequat reprehenderit.\r\n"
+  },
+  {
+    "title": "COWTOWN",
+    "about": "Cupidatat do sunt sit sunt dolore et ullamco sit ad. Adipisicing est aute nisi irure consequat tempor pariatur velit ex pariatur excepteur dolore Lorem. Qui pariatur laborum proident nostrud dolor aliquip nulla.\r\n"
+  },
+  {
+    "title": "ELENTRIX",
+    "about": "Ea sit occaecat exercitation magna sint eu ea aute. Occaecat exercitation ea sint cillum pariatur eiusmod non culpa proident laborum. Labore velit ad aute dolor consectetur dolor aute adipisicing labore est eu elit deserunt.\r\n"
+  },
+  {
+    "title": "CALCULA",
+    "about": "Proident aliqua in duis commodo consequat commodo anim ullamco enim eu qui elit cupidatat minim. Cupidatat laboris sit nostrud irure velit consequat occaecat ad occaecat veniam. Duis velit anim tempor dolore veniam. Est in cillum ut esse eiusmod ipsum dolore fugiat et. Cillum consequat tempor quis elit laboris anim aute laborum anim magna. Ullamco dolor exercitation aliqua est excepteur occaecat sint magna nulla. Nisi nisi veniam laborum fugiat sint adipisicing.\r\n"
+  },
+  {
+    "title": "XEREX",
+    "about": "Irure consequat anim labore proident in cupidatat minim id. Nisi Lorem adipisicing deserunt nisi deserunt adipisicing consectetur incididunt nulla amet aute ex nostrud amet. Proident ut tempor proident commodo dolore consectetur. Et officia magna qui exercitation consectetur quis amet incididunt velit. Adipisicing magna amet aliqua aute duis do ad quis culpa Lorem non.\r\n"
+  }
+];	
+		
+var gTabData=[
+  {
+    "title": "COSMOSIS",
+    "about": "Sunt sit anim ullamco labore aliqua do non commodo sint pariatur laboris officia aliqua. Do est irure officia culpa aute. Ex ut velit ea consectetur consequat reprehenderit.\r\n"
+  },
+  {
+    "title": "COWTOWN",
+    "about": "Cupidatat do sunt sit sunt dolore et ullamco sit ad. Adipisicing est aute nisi irure consequat tempor pariatur velit ex pariatur excepteur dolore Lorem. Qui pariatur laborum proident nostrud dolor aliquip nulla.\r\n"
+  },
+  {
+    "title": "ELENTRIX",
+    "about": "Ea sit occaecat exercitation magna sint eu ea aute. Occaecat exercitation ea sint cillum pariatur eiusmod non culpa proident laborum. Labore velit ad aute dolor consectetur dolor aute adipisicing labore est eu elit deserunt.\r\n"
+  },
+  {
+    "title": "CALCULA",
+    "about": "Proident aliqua in duis commodo consequat commodo anim ullamco enim eu qui elit cupidatat minim. Cupidatat laboris sit nostrud irure velit consequat occaecat ad occaecat veniam. Duis velit anim tempor dolore veniam. Est in cillum ut esse eiusmod ipsum dolore fugiat et. Cillum consequat tempor quis elit laboris anim aute laborum anim magna. Ullamco dolor exercitation aliqua est excepteur occaecat sint magna nulla. Nisi nisi veniam laborum fugiat sint adipisicing.\r\n"
+  },
+  {
+    "title": "XEREX",
+    "about": "Irure consequat anim labore proident in cupidatat minim id. Nisi Lorem adipisicing deserunt nisi deserunt adipisicing consectetur incididunt nulla amet aute ex nostrud amet. Proident ut tempor proident commodo dolore consectetur. Et officia magna qui exercitation consectetur quis amet incididunt velit. Adipisicing magna amet aliqua aute duis do ad quis culpa Lorem non.\r\n"
+  }];	
+		
+		
+ var imageCarousels=[
+            {"imageUrl":"./images/01.png","desc":"Test1","targeturl":"http://www.google.com"},
+            {"imageUrl":"./images/02.png","desc":"Test2","targeturl":"http://www.google.com"},
+            {"imageUrl":"./images/03.png","desc":"Test3","targeturl":"http://www.google.com"},
+            {"imageUrl":"./images/04.png","desc":"Test4","targeturl":"http://www.google.com"},
+            {"imageUrl":"./images/05.png","desc":"Test5","targeturl":"http://www.google.com"}
+            ];		
+		
+		
+		
+		$(document).ready( function() {
+			$("#xgmenu").gmenu({
+				datasource:menudata,
+				menumargin:"0",
+				menutextalign:"center",
+				topmenufloat:"left",
+                submenufloat:"none",
+				padview:{
+					initwidth:"400"},				  
+				mobileview:{
+					initwidth:"400"
+				}
+			});
+    		
+			
+			$("#gaccordion").gAccordion({
+                datasource:gAccordionData,
+				width:"100%",
+				height:"100%",
+				titleheight:"32px",
+				titlefontsize:"16px",
+				txtlineheight:"25px",
+				txtfontsize:"12px"
+				
+			});
+			
+			$("#gcarousels").gcarousels({
+                datasource:imageCarousels,
+				width:"100%",
+				height:"100%"
+			});
+			
+			
+			$("#gTab").gTab({
+                datasource:gTabData,
+				width:"99%",
+				height:"99%",
+				titleheight:"32px",
+				titlefontsize:"16px",
+				txtlineheight:"25px",
+				txtfontsize:"12px",
+				activeclassname:"active"
+				
+			});
+			
+		});
+	</script>
+
+	
+	<style>
+		#gTab{
+			border:1px solid gray;
+			width: 500px;
+			height: 400px;
+		}
+		
+		#gTab ul:nth-child(1){
+			height: 30px;
+			font-family: fantasy;
+			color: darkmagenta;
+			font-weight: 900;
+		}
+		
+		.active{
+			color: red;
+			background-color: bisque;
+			
+		}
+		
+		#gcarousels{
+			border:1px solid gray;
+			width: 500px;
+			height: 400px;
+		}
+		
+	</style>
+	
+</head>
+<body  >
+
+ 
+<!-- Nav End
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+ 
+    <div id="xgmenu" style="margin-bottom:10px"></div>
+<hr>	
+ 		<div id="gcarousels"></div>	
+<hr>	
+ 		<div id="gaccordion"></div>	
+<hr>
+	<div id="gTab"></div>	
+	
+</body>
+</html>
