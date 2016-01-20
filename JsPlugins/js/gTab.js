@@ -43,20 +43,20 @@ function setgTabDefaultCSS(obj,settings){
 	
 	obj.css({overflow:"hidden",
 			"margin":"0px",
-			 "padding":"0px",
+//			 "padding":"0px",
 			 "list-style":"none"	
 			});
 	
 	obj.children("ul").css({overflow:"hidden",
 			"margin":"0px",
-			 "padding":"0px",
+//			 "padding":"0px",
 			 "list-style":"none",
 			//"background-color":"red"
 			});
 	
 	obj.children("ul").children("li").css({overflow:"hidden",
 			"margin":"0px",
-			 "padding":"0px",
+//			 "padding":"0px",
 			 "list-style":"none"	
 			});
 
@@ -67,7 +67,7 @@ function setgTabDefaultCSS(obj,settings){
 	
 		obj.children("ul:nth-child(1)").children("li").css({
 		"float":"left",
-		"padding":"2px",
+//		"padding":"2px",
 		"width":Math.floor(parseInt(settings.width)/size.tabcount)+"%"
 	});
 	
@@ -76,7 +76,7 @@ function setgTabDefaultCSS(obj,settings){
 		obj.children("ul:nth-child(3)").children("li").css({
 		"display":"none",
 		"float":"left",
-		"padding":"10px"
+//		"padding":"10px"
 	});
 	
 	obj.children("ul:nth-child(3)").children("li:nth-child(1)").css({
@@ -111,7 +111,7 @@ function setgTabMouseEvent(obj,settings){
 			  obj.children("ul:nth-child(3)").children("li").css({
 				"display":"none",
 				"float":"left",
-				"padding":"10px"
+//				"padding":"10px"
 			  });
  
 			  

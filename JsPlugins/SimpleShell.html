@@ -172,22 +172,44 @@ var gTabData=[
 
 	
 	<style>
+		ul,li{
+		padding: 0px;
+			margin: 0px;
+		}
 		#gTab{
 			border:1px solid gray;
 			width: 500px;
 			height: 400px;
+			padding: 0px;
+			margin: 0px;
 		}
-		
+		#Tab ul,#Tab li{
+			margin: 0px;
+			padding: 0px;
+		}
 		#gTab ul:nth-child(1){
-			height: 30px;
+			height: 40px;
 			font-family: fantasy;
 			color: darkmagenta;
 			font-weight: 900;
+			background-color: #a0a0a0;
+			border-width: 0px;
+			
+		}
+		#gTab ul:nth-child(1) li{
+			height: 100%;
+			margin:0 auto;
+			text-align: center;
+			padding-top: 10px;
+		}
+		
+		#gTab ul:nth-child(2){
+ 			border-width: 0px;
 		}
 		
 		.active{
 			color: red;
-			background-color: bisque;
+			background-color: white;
 			
 		}
 		
